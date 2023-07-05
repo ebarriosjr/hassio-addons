@@ -11,8 +11,6 @@ ARG BUILD_UPSTREAM="0.0.50"
 
 COPY rootfs/ /
 
-COPY ./nomad.hcl /etc/nomad.d/nomad.hcl
-
 RUN if [ -d /etc/cont-init.d ]; then chmod -R 755 /etc/cont-init.d; fi && \
     if [ -d /etc/services.d ]; then chmod -R 755 /etc/services.d; fi && \
     if [ -f /entrypoint.sh ]; then chmod 755 /entrypoint.sh; fi
@@ -64,7 +62,7 @@ LABEL \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
     org.opencontainers.image.vendor="Home Assistant Add-ons" \
-    org.opencontainers.image.authors="estebanbarrios (https://github.com/ebarriosjr)" \
+    org.opencontainers.image.authors="ebarriosjr (https://github.com/ebarriosjr)" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.url="https://github.com/ebarriosjr" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
