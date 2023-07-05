@@ -1,0 +1,18 @@
+#!/usr/bin/env bashio
+# shellcheck shell=bash
+
+bashio::log.info "Starting Nomad..."
+
+##################
+# DEFINE OPTIONS #
+##################
+declare -a options
+options+=(-config /etc/nomad.d/nomad.hcl)
+#options+=(--host unix:///var/run/docker.sock)
+
+####################
+# LAUNCH NOMAD     #
+####################
+bashio::log.info "... nomad launched"
+
+exec /usr/sbin/nomad agent "${options[@]}"

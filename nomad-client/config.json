@@ -1,0 +1,41 @@
+{
+  "arch" : [
+    "amd64"
+  ],
+  "backup_exclude": [
+    "backups"
+  ],
+  "codenotary":"nomad-plugin@ebarrios.dev",
+  "description":"An agent used to manage all the resources in a nomad cluster",
+  "docker_api":true,
+  "hassio_api":true,
+  "full_access":true,
+  "ingress":true,
+  "ingress_port":4646,
+  "ingress_stream":true,
+  "init":false,
+  "map": [
+    "share:rw",
+    "ssl"
+  ],
+  "name":"Nomad Agent",
+  "ports": {
+    "4646/tcp":4646
+  },
+  "panel_icon":"mdi:monitor",
+  "options": {
+    "consul_addr":"192.168.1.162",
+    "consul_port":"8500",
+    "bind_addr":"0.0.0.0",
+    "datacenter_name":"hasio"
+  },
+  "schema": {
+    "consul_addr":"str",
+    "consul_port":"str",
+    "bind_addr":"str",
+    "datacenter_name":"str"
+  },
+  "slug":"nomad_client",
+  "url":"https://www.ebarrios.dev",
+  "version":"0.0.50"
+}
