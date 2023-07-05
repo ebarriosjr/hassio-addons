@@ -24,7 +24,7 @@
   },
   "panel_icon":"mdi:monitor",
   "options": {
-    "consul_addr":"192.168.1.162",
+    "consul_addr":"192.168.1.50",
     "consul_port":"8500",
     "bind_addr":"0.0.0.0",
     "datacenter_name":"hasio"
@@ -36,6 +36,6 @@
     "datacenter_name":"str"
   },
   "slug":"nomad_client",
-  "url":"https://www.ebarrios.dev",
+  "url":"https://nomad-client.ebarrios.dev",
   "version":"0.0.50"
 }
