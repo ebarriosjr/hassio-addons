@@ -8,6 +8,7 @@ bashio::log.info "Starting Nomad..."
 ##################
 declare -a options
 options+=(-config /etc/nomad.d/nomad.hcl)
+#options+=(--host unix:///var/run/docker.sock)
 
 ####################
 # LAUNCH NOMAD     #

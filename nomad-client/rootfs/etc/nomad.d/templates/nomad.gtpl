@@ -1,24 +1,44 @@
-data_dir = "/etc/nomad/data"
+data_dir = "/data/nomad/data"
 bind_addr = "{{ .bind_addr }}"
 datacenter = "{{ .datacenter_name }}"
 
 advertise {
-  http = "{{ .interface }}:{{ .port }}"
-  rpc = "{{ .interface }}:4647"
-  serf = "{{ .interface }}:4648"
+  http = "{{ .nomad_addr }}:4646"
+  rpc = "{{ .nomad_addr }}:4647"
+  serf = "{{ .nomad_addr }}:4648"
 }
 
 server {
-  enabled = false
+  enabled = true
+  bootstrap_expect = 1
 }
 
 client {
   enabled = true
 }
 
-consul {
-  address = "{{ .consul_addr }}:{{ .consul_port }}"
-  server_service_name = "nomad-server"
-  client_service_name = "nomad-client"
+plugin "raw_exec" {
+  config {
+    enabled = true
+  }
 }
+
+plugin "docker" {
+  config {
+    volumes {
+      enabled = true
+    }
+    allow_privileged = true
+  }
+}
+
+ui {
+  enabled=true
+  label {
+    text = "Home Cluster"
+    background_color = "black"
+    text_color = "white"
+  }
+}
+
 

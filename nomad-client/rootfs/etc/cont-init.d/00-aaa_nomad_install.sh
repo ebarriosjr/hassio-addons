@@ -12,8 +12,8 @@ if [ -e "/NOMADFILE" ]; then
 
     echo "... success!"
 fi
-    bashio::log.blue " Variables: "
-    bashio::log.blue " Consul addr: $(bashio::config 'consul_addr')"
-    bashio::log.blue " Consul port: $(bashio::config 'consul_port')"
+    bashio::log.blue " Success "
+    bashio::log.blue " Nomad addr: $(bashio::config 'nomad_addr')"
+    bashio::log.blue " Nomad server: $(bashio::config 'nomad_server')"
     bashio::log.blue " Datacenter Name: $(bashio::config 'datacenter_name')"
     bashio::log.blue " Bind Addr: $(bashio::config 'bind_addr')"

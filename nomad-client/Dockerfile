@@ -7,7 +7,7 @@ ENV S6_CMD_WAIT_FOR_SERVICES=1 \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG BUILD_UPSTREAM="0.0.50"
+ARG BUILD_UPSTREAM="0.0.81"
 
 COPY rootfs/ /
 
@@ -26,8 +26,10 @@ RUN if ! command -v bash >/dev/null 2>/dev/null; then (apt-get update && apt-get
     && for scripts in $MODULES; do echo "$scripts" && curl -f -L -s -S "https://raw.githubusercontent.com/ebarriosjr/hassio-addons/master/.templates/$scripts" -o /etc/cont-init.d/"$scripts" && [ "$(sed -n '/\/bin/p;q' /etc/cont-init.d/"$scripts")" != "" ] || (echo "script failed to install $scripts" && exit 1); done \
     && chmod -R 755 /etc/cont-init.d
 
+
 # Manual apps
-ENV PACKAGES="nomad"
+ENV PACKAGES="nginx \
+      nomad"
 
 # Automatic apps & bashio
 # hadolint ignore=SC2015
@@ -62,7 +64,7 @@ LABEL \
     org.opencontainers.image.title="${BUILD_NAME}" \
     org.opencontainers.image.description="${BUILD_DESCRIPTION}" \
     org.opencontainers.image.vendor="Home Assistant Add-ons" \
-    org.opencontainers.image.authors="ebarriosjr (https://github.com/ebarriosjr)" \
+    org.opencontainers.image.authors="estebanbarrios (https://github.com/ebarriosjr)" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.url="https://github.com/ebarriosjr" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
@@ -71,8 +73,15 @@ LABEL \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
 
+
 #################
-# 6 Healthcheck #
+# 6 EXPOSE PORT #
+#################
+
+EXPOSE 4646 4647
+
+#################
+# 7 Healthcheck #
 #################
 
 ENV HEALTH_PORT="4646" \

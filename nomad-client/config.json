@@ -11,7 +11,6 @@
   "hassio_api":true,
   "full_access":true,
   "ingress":true,
-  "ingress_port":4646,
   "ingress_stream":true,
   "init":false,
   "map": [
@@ -20,22 +19,23 @@
   ],
   "name":"Nomad Agent",
   "ports": {
-    "4646/tcp":4646
+    "4646/tcp":4646,
+    "4647/tcp":4647
   },
   "panel_icon":"mdi:monitor",
   "options": {
-    "consul_addr":"192.168.1.50",
-    "consul_port":"8500",
+    "nomad_addr":"192.168.1.162",
     "bind_addr":"0.0.0.0",
+    "nomad_server":"100.110.86.87",
     "datacenter_name":"hasio"
   },
   "schema": {
-    "consul_addr":"str",
-    "consul_port":"str",
+    "nomad_addr":"str",
     "bind_addr":"str",
+    "nomad_server":"str",
     "datacenter_name":"str"
   },
   "slug":"nomad_client",
-  "url":"https://nomad-client.ebarrios.dev",
-  "version":"0.0.50"
+  "url":"https://www.ebarrios.dev",
+  "version":"0.0.81"
 }

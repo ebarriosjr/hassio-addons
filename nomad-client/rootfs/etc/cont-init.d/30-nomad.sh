@@ -12,8 +12,8 @@ bashio::var.json \
     interface "$(bashio::addon.ip_address)" \
     port "^$(bashio::addon.ingress_port)" \
     protocol "${nomad_protocol}" \
-    consul_addr "$(bashio::config 'consul_addr')" \
-    consul_port "$(bashio::config 'consul_port')" \
+    nomad_addr "$(bashio::config 'nomad_addr')" \
+    nomad_server "$(bashio::config 'nomad_server')" \
     bind_addr "$(bashio::config 'bind_addr')" \
     datacenter_name "$(bashio::config 'datacenter_name')" |
 tempio \
