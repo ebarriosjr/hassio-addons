@@ -1,0 +1,9 @@
+{
+  "github_havingasset": "true",
+  "last_update": "09-08-2023",
+  "repository": "ebarriosjr/hassio-addons",
+  "slug": "nomad",
+  "source": "github",
+  "upstream_repo": "hashicorp/nomad",
+  "upstream_version": "1.6.1"
+}
